@@ -204,9 +204,39 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 body {
 	background: #eee;
+	font-family: "Helvetica Neue", Helvatica, Arial, sans-serif;
 }
 
-
+.party {
+	height: 30em;
+	overflow: hidden;
+	padding: 0 14px
+}
+.party h2 {
+	font-size: 30px;
+	font-weight: 300;
+}
+.party .logo {
+	width: 200px;
+	margin: 0 auto;
+}
+.party .url {
+	display: block;
+}
+#advice {
+	background: #7777aa;
+}
+footer {
+	height: 500px;
+	background: #aa7777;
+	position: relative;
+}
+.hurdur { 
+	color: #997777;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+}
 
 
 

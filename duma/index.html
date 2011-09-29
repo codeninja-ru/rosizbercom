@@ -37,7 +37,18 @@
 					<img class="logo" src="img/kprf.png">
 					<a class="url" href="http://kprf.ru/" rel="nofollow">Сайт</a>
 					<div class="poll">
-						
+						<div class="btn fb">
+							<div id="fb-root"></div>
+							<script>(function(d, s, id) {
+								  var js, fjs = d.getElementsByTagName(s)[0];
+								    if (d.getElementById(id)) {return;}
+									  js = d.createElement(s); js.id = id;
+									    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+										  fjs.parentNode.insertBefore(js, fjs);
+										  }(document, 'script', 'facebook-jssdk'));</script>
+
+									  <div class="fb-like" data-send="false" data-width="450" data-show-faces="true" data-font="arial"></div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -125,7 +136,20 @@
 	</div>
 	<footer>
 		<div class="comments container_12 clearfix">
-			 тут комменты из соц. сервисов
+			<div class="fb comment grid_6">
+				<div id="fb-root"></div>
+				<script>(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) {return;}
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
+				
+				<div class="fb-comments" data-href="rosizber.com" data-num-posts="2" data-width="460"></div>			
+			</div>
+			<div class="vk comment grid_6">
+			</div>
 		</div>
 		<div class="inner container_12 clearfix">
 		</div>

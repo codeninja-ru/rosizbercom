@@ -218,7 +218,6 @@ header h1 { margin-bottom: 0; }
 
 .party {
 	overflow: hidden;
-	padding: 10px 14px;
 	margin: 20px 0;
 	height: 25em;
 }
@@ -229,9 +228,8 @@ header h1 { margin-bottom: 0; }
 }
 .party .descr { color: #777;}
 .party .logo {
-	width: 200px;
-	display: block;
 }
+.party .logo img { display: block; margin: 0 auto; }
 .party .url {
 	display: inline-block;
 	color: #fff;

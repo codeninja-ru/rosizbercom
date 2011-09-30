@@ -1,6 +1,6 @@
 
 -- критерий что размер хороший
-is_good_size:: (a, a) -> Bool
+is_good_size:: (Ord a) => (a, a) -> Bool
 is_good_size (w, h) = w <= 300 && w > 100 && h <= (500) && h > 100
 
 -- проверяем весь список

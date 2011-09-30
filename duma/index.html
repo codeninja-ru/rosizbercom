@@ -18,6 +18,13 @@
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	
+	<!-- vkontakte -->
+	<script type="text/javascript" src="http://userapi.com/js/api/openapi.js?34"></script>
+
+	<script type="text/javascript">
+	    VK.init({apiId: 2142984, onlyWidgets: true});
+	</script>
 
 	<script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
@@ -40,14 +47,20 @@
 						<div class="btn fb">
 							<div id="fb-root"></div>
 							<script>(function(d, s, id) {
-								  var js, fjs = d.getElementsByTagName(s)[0];
-								    if (d.getElementById(id)) {return;}
-									  js = d.createElement(s); js.id = id;
-									    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-										  fjs.parentNode.insertBefore(js, fjs);
-										  }(document, 'script', 'facebook-jssdk'));</script>
-
-									  <div class="fb-like" data-send="false" data-width="450" data-show-faces="true" data-font="arial"></div>
+							  var js, fjs = d.getElementsByTagName(s)[0];
+							  if (d.getElementById(id)) {return;}
+							  js = d.createElement(s); js.id = id;
+							  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+							  fjs.parentNode.insertBefore(js, fjs);
+							}(document, 'script', 'facebook-jssdk'));</script>
+							
+							<div class="fb-like" data-href="http://rosizber.com/" data-send="false" data-layout="button_count" data-width="250" data-show-faces="true" data-font="arial" data-ref="1001"></div>						
+						</div>
+						<div class="btn">
+						    <div id="vk_like"></div>
+						    <script type="text/javascript">
+						    VK.Widgets.Like("vk_like", {type: "vertical", pageTitle: "Я голосую за партию КПРФ", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1001);
+						    </script>
 						</div>
 					</div>
 				</div>
@@ -136,23 +149,27 @@
 			</div>
 		</div>
 	</div>
-	<footer>
-		<div class="comments container_12 clearfix">
-			<div class="fb comment grid_6">
-				<div id="fb-root"></div>
-				<script>(function(d, s, id) {
-				  var js, fjs = d.getElementsByTagName(s)[0];
-				  if (d.getElementById(id)) {return;}
-				  js = d.createElement(s); js.id = id;
-				  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-				  fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));</script>
-				
-				<div class="fb-comments" data-href="rosizber.com" data-num-posts="2" data-width="460"></div>			
-			</div>
-			<div class="vk comment grid_6">
-			</div>
+	<div id="comments" class="container_12 clearfix">
+		<div class="fb comment grid_6">
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) {return;}
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+			
+			<div class="fb-comments" data-href="rosizber.com" data-num-posts="2" data-width="460"></div>			
 		</div>
+		<div class="vk comment grid_6">
+	        <div id="vk_comments"></div>
+	        <script type="text/javascript">
+	            VK.Widgets.Comments("vk_comments", {limit: 10, width: "460", attach: false});
+	        </script>			
+		</div>
+	</div>
+	<footer>
 		<div class="inner container_12 clearfix">
 		</div>
 		<div class="hurdur">голосуй @ выбирай</div>

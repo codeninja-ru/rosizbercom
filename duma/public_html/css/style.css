@@ -239,6 +239,10 @@ header h1 { margin-bottom: 0; }
 	padding: 5px 15px;
 	background: #0077cc;
 }
+.party .poll {}
+.party .poll .btn {
+	padding: 3px 0;
+}
 #advice {
 	/*background: #7777aa;*/
 	padding: 25px 0 60px 0;

@@ -219,7 +219,6 @@ header h1 { margin-bottom: 0; }
 .slogan { font-size: 18px; color: #555; }
 
 .party {
-	overflow: hidden;
 	margin: 20px 0;
 	height: 500px;
 }

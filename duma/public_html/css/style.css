@@ -208,6 +208,8 @@ body {
 	font-size: 15px;
 }
 
+p { }
+
 h1, h2, h3, h4 { font-weight: 400; font-family: "PT Sans Narrow","Helvetica Neue", Helvatica, Arial, sans-serif; margin: 0; }
 h1 { font-size: 45px; margin: 20px 0; }
 h2 { font-size: 45px; margin: 10px 0; }
@@ -251,17 +253,18 @@ header h1 { margin-bottom: 0; }
 }
 #advice .inner { border-top: 1px solid #ccc; padding: 20px 0; }
 footer {
-	height: 500px;
-	background: #aa7777;
+	background: #fff;
 	position: relative;
 	padding: 30px 0;
 }
+#comments { margin-bottom: 20px; }
 .hurdur { 
 	color: #997777;
 	bottom: 0;
 	right: 0;
 	position: absolute;
 }
+.addthis_toolbox { margin: 7px 0; }
 
 
 

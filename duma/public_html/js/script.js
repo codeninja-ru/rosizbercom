@@ -38,7 +38,7 @@ function widget_vk_init() {
 
 function widget_twitter_init() {
 				new TWTR.Widget({
-				  id: 'twitter-news'
+				  id: 'twitter-news',
 				  version: 2,
 				  type: 'search',
 				  search: 'выборы дума',

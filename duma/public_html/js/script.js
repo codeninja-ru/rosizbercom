@@ -13,6 +13,11 @@ yepnope([{
 
 yepnope(['http://platform.twitter.com/widgets.js', 'https://apis.google.com/js/plusone.js', 'http://connect.facebook.net/en_US/all.js#xfbml=1']);
 
+yepnope({
+    load: 'http://widgets.twimg.com/j/2/widget.js',
+    complete: widget_twitter_init
+})
+
 function widget_vk_init() {
 	VK.Widgets.Like("vk_like_kprf", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию &laquo;КПРФ&raquo;", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1001);
 	
@@ -29,4 +34,39 @@ function widget_vk_init() {
 	VK.Widgets.Like("vk_like_pd", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию &laquo;Правое дело&raquo;", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1007);
 	
 	VK.Widgets.Comments("vk_comments", {limit: 10, width: "460", attach: false});
+}
+
+function widget_twitter_init() {
+				new TWTR.Widget({
+				  id: 'twitter-news'
+				  version: 2,
+				  type: 'search',
+				  search: 'выборы дума',
+				  interval: 30000,
+				  title: 'Твиттер о выборах',
+				  subject: '',
+				  width: 'auto',
+				  height: 500,
+				  theme: {
+				    shell: {
+				      background: '#8ec1da',
+				      color: '#ffffff'
+				    },
+				    tweets: {
+				      background: '#ffffff',
+				      color: '#444444',
+				      links: '#1985b5'
+				    }
+				  },
+				  features: {
+				    scrollbar: false,
+				    loop: true,
+				    live: true,
+				    hashtags: true,
+				    timestamp: true,
+				    avatars: true,
+				    toptweets: true,
+				    behavior: 'default'
+				  }
+				}).render().start();
 }

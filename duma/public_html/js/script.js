@@ -11,7 +11,7 @@ yepnope([{
 },
 ]);
 
-yepnope(['http://platform.twitter.com/widgets.js', 'https://apis.google.com/js/plusone.js']);
+yepnope(['http://platform.twitter.com/widgets.js', 'https://apis.google.com/js/plusone.js', 'http://connect.facebook.net/en_US/all.js#xfbml=1']);
 
 function widget_vk_init() {
 	VK.Widgets.Like("vk_like_kprf", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию &laquo;КПРФ&raquo;", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1001);

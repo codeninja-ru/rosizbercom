@@ -11,7 +11,7 @@ yepnope([{
 },
 ]);
 
-yepnope(['http://platform.twitter.com/widgets.js', 'https://apis.google.com/js/plusone.js', 'http://connect.facebook.net/en_US/all.js#xfbml=1']);
+yepnope(['http://platform.twitter.com/widgets.js', 'https://apis.google.com/js/plusone.js', 'http://connect.facebook.net/en_US/all.js#xfbml=1' , 'http://stg.odnoklassniki.ru/share/odkl_share.js']);
 
 yepnope({
     load: 'http://widgets.twimg.com/j/2/widget.js',

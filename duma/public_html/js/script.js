@@ -14,6 +14,15 @@ yepnope([{
 yepnope(['http://platform.twitter.com/widgets.js', 'https://apis.google.com/js/plusone.js', 'http://connect.facebook.net/en_US/all.js#xfbml=1']);
 
 yepnope({
+    load: ['http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js','http://stg.odnoklassniki.ru/share/odkl_share.js'],
+    complete: function() {
+	$(document).ready(function() {
+		ODKL.init();
+	 });
+    }
+})
+
+yepnope({
     load: 'http://widgets.twimg.com/j/2/widget.js',
     complete: widget_twitter_init
 })
@@ -35,6 +44,7 @@ function widget_vk_init() {
 	
 	VK.Widgets.Comments("vk_comments", {limit: 10, width: "460", attach: false});
 }
+
 
 function widget_twitter_init() {
 				new TWTR.Widget({

@@ -44,6 +44,8 @@ function widget_vk_init() {
 	
 	VK.Widgets.Comments("vk_comments", {limit: 10, width: "460", attach: false});
 
+  getVkCount(1007);
+
 }
 
 
@@ -85,10 +87,10 @@ function widget_twitter_init() {
 function getVkCount(item_id) {
   return VK.Api.call('likes.getList', {
     type: 'sitepage',
-    owner_id: 2628061,
-    page_url: 'http://rosizber.com/',
+ //   owner_id: 2628061,
+ //   page_url: 'http://rosizber.com/',
     item_id: item_id
-  }, function(r) {alert(r);});
+  }, function(r) {$('#chart').html(r);});
 }
 
 // диаграмма с результатами

@@ -87,10 +87,11 @@ function widget_twitter_init() {
 function getVkCount(item_id) {
   return VK.Api.call('likes.getList', {
     type: 'sitepage',
- //   owner_id: 2628061,
- //   page_url: 'http://rosizber.com/',
+    owner_id: 2628061,
     item_id: item_id
-  }, function(r) {$('#chart').html(r);});
+  }, function(r) {
+  	if (r.response) $('#chart').html(r.response.count);
+	});
 }
 
 // диаграмма с результатами

@@ -5,7 +5,7 @@
 yepnope([{
 	load: "http://userapi.com/js/api/openapi.js?34",		
 	complete: function() {
-	    VK.init({apiId: 2628061, onlyWidgets: true});
+	    VK.init({apiId: 2628061, onlyWidgets: false});
 		widget_vk_init();
 	}
 },
@@ -43,6 +43,9 @@ function widget_vk_init() {
 	VK.Widgets.Like("vk_like_pd", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию &laquo;Правое дело&raquo;", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1007);
 	
 	VK.Widgets.Comments("vk_comments", {limit: 10, width: "460", attach: false});
+
+  getVkCount(1007);
+
 }
 
 
@@ -80,3 +83,39 @@ function widget_twitter_init() {
 				  }
 				}).render().start();
 }
+
+function getVkCount(item_id) {
+  return VK.Api.call('likes.getList', {
+    type: 'sitepage',
+ //   owner_id: 2628061,
+ //   page_url: 'http://rosizber.com/',
+    item_id: item_id
+  }, function(r) {$('#chart').html(r);});
+}
+
+// диаграмма с результатами
+  
+      function drawChart() {
+
+      // Create the data table.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Topping');
+      data.addColumn('number', 'Slices');
+      data.addRows([
+        ['Mushrooms', 3],
+        ['Onions', 1],
+        ['Olives', 1], 
+        ['Zucchini', 1],
+        ['Pepperoni', 2]
+      ]);
+
+      // Set chart options
+      var options = {'title':'How Much Pizza I Ate Last Night',
+                     'width':400,
+                     'height':300};
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart'));
+      chart.draw(data, options);
+    }
+

@@ -13,14 +13,6 @@ yepnope([{
 
 yepnope(['http://platform.twitter.com/widgets.js'/*, 'https://apis.google.com/js/plusone.js'*/, 'http://connect.facebook.net/en_US/all.js#xfbml=1']);
 
-yepnope({
-    load: ['http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js','http://stg.odnoklassniki.ru/share/odkl_share.js'],
-    complete: function() {
-    	$(document).ready(function() {
-    		ODKL.init();
-    	 });
-    }
-})
 
 yepnope({
     load: 'http://widgets.twimg.com/j/2/widget.js',
@@ -44,7 +36,6 @@ function widget_vk_init() {
 	
 	VK.Widgets.Comments("vk_comments", {limit: 10, width: "460", attach: false});
 
-  getVkCount(1007);
 
 }
 
@@ -84,55 +75,66 @@ function widget_twitter_init() {
 				}).render().start();
 }
 
-function getVkCount(item_id) {
+function getVkApiCount(name, item_id) {
   return VK.Api.call('likes.getList', {
     type: 'sitepage',
     owner_id: 2628061,
     item_id: item_id
   }, function(r) {
-  	if (r.response) $('#chart').html(r.response.count);
+  	if (r.response) addCounter(name, r.response.count);
 	});
 }
 
 function calc_result() {
-  $('.party').each(function (item) {
+  $('.party').each(function (idx, item) {
     getTwitterCount(item);
     getVkCount(item);
     getFbCount(item);
-    getOkCount(item);
+    //getOdklCount(item);
   });  
 }
 
 function getTwitterCount(item) {
   var name = $(item).data('name');
   var url = 'http://rosizber.com/?party=' + name;
+  url = encodeURIComponent(url);
+  url = 'http://urls.api.twitter.com/1/urls/count.json?url=' + url + '&callback=?'
   $.getJSON(url, function (data) {
     addCounter(name, data.count);
   });
 
 }
 
-function getVkCount(item) {}
-function getFbCount(item) {}
-function getOkCount(item) {}
+function getVkCount(item) { getVkApiCount($(item).data('name'), $(item).data('id')) }
+function getFbCount(item) {
+  var name = $(item).data('name');
+  var url = 'http://rosizber.com/#party-' + name;
+  url = encodeURIComponent(url);
+  url = 'https://api.facebook.com/method/fql.query?query=select total_count from link_stat where url="' + url + '"&format=json&callback=?';
+  $.getJSON(url, function (data) {
+    addCounter(name, data[0].total_count);
+  });
+}
 
-function addCounter(party_name, count) { alert(party_name + 'get ' + count + ' votes!'); }
+function getOdklCount(item) {
+//http://www.odnoklassniki.ru/dk?st.cmd=extLike&uid=odklcnt0&ref=http%3A%2F%2Frosizber.com%2F%23party-kprf
+}
 
-// диаграмма с результатами
-  
+function addCounter(party_name, count) {  }
+
+// диаграмма с результатами  
+
       function drawChart() {
 
       // Create the data table.
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'Topping');
       data.addColumn('number', 'Slices');
-      data.addRows([
-        ['Mushrooms', 3],
-        ['Onions', 1],
-        ['Olives', 1], 
-        ['Zucchini', 1],
-        ['Pepperoni', 2]
-      ]);
+      var result = [];
+      $('.party').each(function (idx, $item) {
+          result.push([$item.find('h2').val(), 0]);
+      });
+      data.addRows(result);
 
       // Set chart options
       var options = {'title':'How Much Pizza I Ate Last Night',
@@ -144,3 +146,23 @@ function addCounter(party_name, count) { alert(party_name + 'get ' + count + ' v
       chart.draw(data, options);
     }
 
+yepnope({
+    load: ['http://stg.odnoklassniki.ru/share/odkl_share.js'],
+    complete: function() {
+    	$(document).ready(function() {
+    		ODKL.init();
+
+        // хакаем кнопку одноглазников
+        var old_func = ODKL.updateCount;
+        ODKL.updateCount = function (id, count) {
+          var $party = $('#'+id).parents('.party');
+          var name = $party.data('name');
+          addCounter(name, count);
+          old_func(id, count);
+
+        }
+        calc_result();
+//        google.setOnLoadCallback(drawChart);
+    	 });
+    }
+})

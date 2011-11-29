@@ -11,14 +11,14 @@ yepnope([{
 },
 ]);
 
-yepnope(['http://platform.twitter.com/widgets.js', 'https://apis.google.com/js/plusone.js', 'http://connect.facebook.net/en_US/all.js#xfbml=1']);
+yepnope(['http://platform.twitter.com/widgets.js'/*, 'https://apis.google.com/js/plusone.js'*/, 'http://connect.facebook.net/en_US/all.js#xfbml=1']);
 
 yepnope({
     load: ['http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js','http://stg.odnoklassniki.ru/share/odkl_share.js'],
     complete: function() {
-	$(document).ready(function() {
-		ODKL.init();
-	 });
+    	$(document).ready(function() {
+    		ODKL.init();
+    	 });
     }
 })
 
@@ -92,6 +92,30 @@ function getVkCount(item_id) {
     item_id: item_id
   }, function(r) {$('#chart').html(r);});
 }
+
+function calc_result() {
+  $('.party').each(function (item) {
+    getTwitterCount(item);
+    getVkCount(item);
+    getFbCount(item);
+    getOkCount(item);
+  });  
+}
+
+function getTwitterCount(item) {
+  var name = $(item).data('name');
+  var url = 'http://rosizber.com/?party=' + name;
+  $.getJSON(url, function (data) {
+    addCounter(name, data.count);
+  });
+
+}
+
+function getVkCount(item) {}
+function getFbCount(item) {}
+function getOkCount(item) {}
+
+function addCounter(party_name, count) { alert(party_name + 'get ' + count + ' votes!'); }
 
 // диаграмма с результатами
   

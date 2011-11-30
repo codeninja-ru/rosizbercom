@@ -120,21 +120,43 @@ function getOdklCount(item) {
 //http://www.odnoklassniki.ru/dk?st.cmd=extLike&uid=odklcnt0&ref=http%3A%2F%2Frosizber.com%2F%23party-kprf
 }
 
-function addCounter(party_name, count) {  }
+function addCounter(party_name, count) {
+  $('#party-'+party_name).data('count') = $('#party-'+party_name).data('count') + count;
+  if (ResultData != false) {
+    old_count = ResultData.getValue(party_name)
+    ResultData.setValue(party_name, old_count + count); 
+  }
+}
+
 
 // диаграмма с результатами  
-
+var ResultData = false;
       function drawChart() {
 
+ResultData = {
+  data: new google.visualization.DataTable(), // рузльтаты опроса в сыром виде
+  keys: {}, // соотвествие ключей и индексам масива
+  addRow: function(name, title, count) {
+      var idx = this.data.addRow([title, count]);
+      this.keys[name] = idx - 1;
+  },
+  setValue: function(name, count) {
+    if (this.keys[name] == undefined) {
+      this.addRow(name, '', count);
+    } else {
+      this.data.setCell(this.keys[name], 1, count);
+    } 
+  },
+  getValue: function(name) {
+    return this.data.getValue(this.keys[name], 1);
+  }
+};
       // Create the data table.
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Topping');
-      data.addColumn('number', 'Slices');
-      var result = [];
-      $('.party').each(function (idx, $item) {
-          result.push([$item.find('h2').val(), 0]);
+      ResultData.data.addColumn('string', 'Topping');
+      ResultData.data.addColumn('number', 'Slices');
+      $('.party').each(function (idx, item) {
+          ResultData.addRow($(item).data('name'), $(item).find('h2').text().trim(), $(item).data('count'));
       });
-      data.addRows(result);
 
       // Set chart options
       var options = {'title':'How Much Pizza I Ate Last Night',
@@ -143,7 +165,7 @@ function addCounter(party_name, count) {  }
 
       // Instantiate and draw our chart, passing in some options.
       var chart = new google.visualization.PieChart(document.getElementById('chart'));
-      chart.draw(data, options);
+      chart.draw(ResultData.data, options);
     }
 
 yepnope({
@@ -161,7 +183,6 @@ yepnope({
           old_func(id, count);
 
         }
-        calc_result();
 //        google.setOnLoadCallback(drawChart);
     	 });
     }

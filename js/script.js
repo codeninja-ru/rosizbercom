@@ -131,42 +131,43 @@ function addCounter(party_name, count) {
 
 // диаграмма с результатами  
 var ResultData = false;
-      function drawChart() {
+function drawChart() {
 
-ResultData = {
-  data: new google.visualization.DataTable(), // рузльтаты опроса в сыром виде
-  keys: {}, // соотвествие ключей и индексам масива
-  addRow: function(name, title, count) {
-      var idx = this.data.addRow([title, count]);
-      this.keys[name] = idx - 1;
-  },
-  setValue: function(name, count) {
-    if (this.keys[name] == undefined) {
-      this.addRow(name, '', count);
-    } else {
-      this.data.setCell(this.keys[name], 1, count);
-    } 
-  },
-  getValue: function(name) {
-    return this.data.getValue(this.keys[name], 1);
-  }
-};
-      // Create the data table.
-      ResultData.data.addColumn('string', 'Topping');
-      ResultData.data.addColumn('number', 'Slices');
-      $('.party').each(function (idx, item) {
-          ResultData.addRow($(item).data('name'), $(item).find('h2').text().trim(), $(item).data('count'));
-      });
-
-      // Set chart options
-      var options = {'title':'How Much Pizza I Ate Last Night',
-                     'width':400,
-                     'height':300};
-
-      // Instantiate and draw our chart, passing in some options.
-      var chart = new google.visualization.PieChart(document.getElementById('chart'));
-      chart.draw(ResultData.data, options);
+  ResultData = {
+    data: new google.visualization.DataTable(), // рузльтаты опроса в сыром виде
+    keys: {}, // соотвествие ключей и индексам масива
+    addRow: function(name, title, count) {
+        var idx = this.data.addRow([title, count]);
+        this.keys[name] = idx - 1;
+    },
+    setValue: function(name, count) {
+      if (this.keys[name] == undefined) {
+        this.addRow(name, '', count);
+      } else {
+        this.data.setCell(this.keys[name], 1, count);
+      } 
+    },
+    getValue: function(name) {
+      return this.data.getValue(this.keys[name], 1);
     }
+  };
+
+  // Create the data table.
+  ResultData.data.addColumn('string', 'Topping');
+  ResultData.data.addColumn('number', 'Slices');
+  $('.party').each(function (idx, item) {
+      ResultData.addRow($(item).data('name'), $(item).find('h2').text().trim(), $(item).data('count'));
+  });
+  
+  // Set chart options
+  var options = {'title':'How Much Pizza I Ate Last Night',
+                 'width':400,
+                 'height':300};
+  
+  // Instantiate and draw our chart, passing in some options.
+  var chart = new google.visualization.PieChart(document.getElementById('chart'));
+  chart.draw(ResultData.data, options);
+}
 
 yepnope({
     load: ['http://stg.odnoklassniki.ru/share/odkl_share.js'],
@@ -174,15 +175,15 @@ yepnope({
     	$(document).ready(function() {
     		ODKL.init();
 
-        // хакаем кнопку одноглазников
-        var old_func = ODKL.updateCount;
-        ODKL.updateCount = function (id, count) {
-          var $party = $('#'+id).parents('.party');
-          var name = $party.data('name');
-          addCounter(name, count);
-          old_func(id, count);
-
-        }
+//        // хакаем кнопку одноглазников
+//        var old_func = ODKL.updateCount;
+//        ODKL.updateCount = function (id, count) {
+//          var $party = $('#'+id).parents('.party');
+//          var name = $party.data('name');
+//          addCounter(name, count);
+//          old_func(id, count);
+//
+//        }
 //        google.setOnLoadCallback(drawChart);
     	 });
     }

@@ -160,9 +160,14 @@ function drawChart() {
   });
   
   // Set chart options
-  var options = {'title':'How Much Pizza I Ate Last Night',
-                 'width':400,
-                 'height':300};
+  var options = {'title':'Кто победил?',
+                 'width':840,
+                 'height':700,
+                 'backgroundColor': 'transparent',
+                 'fontSize': '14px',
+                 'fontName': 'Helvetica',
+                 'titleTextStyle': {color: '#333', fontName: 'Helvetica', fontSize: '18px'},
+                };
   
   // Instantiate and draw our chart, passing in some options.
   var chart = new google.visualization.PieChart(document.getElementById('chart'));

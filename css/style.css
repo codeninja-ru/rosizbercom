@@ -251,6 +251,7 @@ header h1 { margin-bottom: 7px; }
 	/*background: #7777aa;*/
 	padding: 25px 0 60px 0;
 }
+.stop #advice { display: none; }
 #advice .inner { border-top: 1px solid #ccc; padding: 20px 0; }
 footer {
 	background: #fff;
@@ -260,6 +261,7 @@ footer {
 #results { display: none; }
 .stop #results { display: block; }
 .stop #main { opacity: 0.3; }
+#chart { margin: 0 auto; width: 840px; }
 #comments { margin-bottom: 20px; }
 .hurdur { 
 	color: #997777;

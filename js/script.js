@@ -160,13 +160,14 @@ function drawChart() {
   });
   
   // Set chart options
-  var options = {'title':'Кто победил?',
+  var options = {
                  'width':840,
-                 'height':700,
+                 'height':500,
                  'backgroundColor': 'transparent',
                  'fontSize': '14px',
                  'fontName': 'Helvetica',
                  'titleTextStyle': {color: '#333', fontName: 'Helvetica', fontSize: '18px'},
+                 'colors': ['#F95757', '#579FF9', '#423EF8', '#F9A357', '#BAFB97', '#ECF957', '#BE57F9']
                 };
   
   // Instantiate and draw our chart, passing in some options.

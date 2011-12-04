@@ -254,6 +254,8 @@ header h1 { margin-bottom: 7px; }
 .poll, .poll-text { display: none; }
 .show-results .poll, .show-results .poll-text { display: block; }
 #chart { display: none; }
+#about-results { font-size: 18px; }
+.show-results #about-results { display: none; }
 .show-results #chart { display: block; }
 .show-results #advice { display: none; }
 #advice .inner { border-top: 1px solid #ccc; padding: 20px 0; }

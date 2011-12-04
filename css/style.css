@@ -251,7 +251,8 @@ header h1 { margin-bottom: 7px; }
 	/*background: #7777aa;*/
 	padding: 25px 0 60px 0;
 }
-.poll { display: none; }
+.poll, .poll-text { display: none; }
+#chart { display: none; }
 .stop #advice { display: none; }
 #advice .inner { border-top: 1px solid #ccc; padding: 20px 0; }
 footer {

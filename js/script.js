@@ -182,8 +182,8 @@ yepnope({
     		ODKL.init();
 			
 			//показываем результаты в нужное время
-			var now = Date();
-			var timeLimit = Date.parse('Dec 5, 2011');
+			var now = new Date();
+			var timeLimit = new Date(Date.parse('Dec 5, 2011'));
 			if (now > timeLimit) $('body').addClass('show-results');
 //        // хакаем кнопку одноглазников
 //        var old_func = ODKL.updateCount;

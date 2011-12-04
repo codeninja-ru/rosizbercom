@@ -266,7 +266,7 @@ footer {
 }
 #results { display: none; }
 .stop #results { display: block; }
-.stop #main { opacity: 0.3; }
+.show-results #main { opacity: 0.3; }
 #chart { margin: 0 auto; width: 840px; }
 #comments { margin-bottom: 20px; }
 .hurdur { 

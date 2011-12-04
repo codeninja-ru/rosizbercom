@@ -252,7 +252,10 @@ header h1 { margin-bottom: 7px; }
 	padding: 25px 0 60px 0;
 }
 .poll, .poll-text { display: none; }
+.show-results .poll, .show-results .poll-text { display: block; }
 #chart { display: none; }
+.show-results #chart { display: block; }
+.show-results #advice { display: none; }
 #advice .inner { border-top: 1px solid #ccc; padding: 20px 0; }
 footer {
 	background: #fff;

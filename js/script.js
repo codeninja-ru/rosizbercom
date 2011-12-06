@@ -188,7 +188,11 @@ yepnope({
     complete: function() {
     	$(document).ready(function() {
     		ODKL.init();
-
+			
+			//показываем результаты в нужное время
+			var now = new Date();
+			var timeLimit = new Date(Date.parse('Dec 5, 2011'));
+			if (now > timeLimit) $('body').addClass('show-results');
 //        // хакаем кнопку одноглазников
 //        var old_func = ODKL.updateCount;
 //        ODKL.updateCount = function (id, count) {

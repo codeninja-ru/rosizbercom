@@ -258,6 +258,8 @@ footer {
 	position: relative;
 	padding: 30px 0;
 }
+#after-elections { margin: 0 auto; width: 500px; text-align: center;}
+#after-elections .share { float: left; width: 200px; }
 #results { display: none; }
 .stop #results { display: block; }
 .stop #main { opacity: 0.3; }

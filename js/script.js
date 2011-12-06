@@ -17,7 +17,7 @@ yepnope(['http://platform.twitter.com/widgets.js'/*, 'https://apis.google.com/js
 yepnope({
     load: 'http://widgets.twimg.com/j/2/widget.js',
     complete: widget_twitter_init
-})
+});
 
 function widget_vk_init() {
 	VK.Widgets.Like("vk_like_kprf", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию &laquo;КПРФ&raquo;", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1001);
@@ -38,6 +38,14 @@ function widget_vk_init() {
 
 
 }
+
+yepnope({
+  load: 'http://vkontakte.ru/js/api/share.js?11',
+  complete: function() {
+    $('#share-i-hate-edro').html(VK.Share.button({url: 'http://rosizber.com/#no-er', title: 'Я не голосовал за Единую Россию', image: 'http://rosizber.com/img/edimro.png', description: 'На выборах 4 декабря я голосовал против партии Единая Росси!!!', noparse: true},{type: "button", text: "Я НЕ голосовал за ЕдРо"}));
+    $('#share-i-am-julik').html(VK.Share.button({url: 'http://rosizber.com/#za-er', title: 'Я голосовал за Единую Россию', image: 'http://rosizber.com/img/er.png', description: 'На выборах 4 декабря я голосовал за партию Единая Россия!!!', noparse: true},{type: "button", text: "Я голосовал за ЕдРо"}));
+  }
+});
 
 
 function widget_twitter_init() {

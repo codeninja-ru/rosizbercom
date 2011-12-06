@@ -264,8 +264,9 @@ footer {
 	position: relative;
 	padding: 30px 0;
 }
-#after-elections { margin: 0 auto; width: 500px; text-align: center;}
+#after-elections { margin: 0 auto; width: 400px; text-align: center; margin-bottom: 80px;}
 #after-elections .share { float: left; width: 200px; }
+#results h4 { text-align: center; }
 #results { display: none; }
 .stop #results { display: block; }
 .show-results #main { opacity: 0.3; }

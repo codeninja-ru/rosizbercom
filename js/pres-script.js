@@ -20,6 +20,8 @@ yepnope({
 });
 
 function widget_vk_init() {
+	VK.Widgets.Comments("vk_comments", {limit: 10, width: "460", attach: false});
+
 	yepnope({
 	  load: 'http://vkontakte.ru/js/api/share.js?11',
 	  complete: function() {
@@ -39,7 +41,7 @@ function widget_twitter_init() {
 				  id: 'twitter-news',
 				  version: 2,
 				  type: 'search',
-				  search: 'выборы дума',
+				  search: 'rosizber',
 				  interval: 30000,
 				  title: 'Твиттер о выборах',
 				  subject: '',

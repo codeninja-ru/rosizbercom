@@ -20,32 +20,18 @@ yepnope({
 });
 
 function widget_vk_init() {
-	VK.Widgets.Like("vk_like_kprf", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию &laquo;КПРФ&raquo;", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1001);
-	
-	VK.Widgets.Like("vk_like_ldpr", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию ЛДПР", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1002);
-	
-	VK.Widgets.Like("vk_like_er", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию &laquo;Единая Россия&raquo;", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1003);
-	
-	VK.Widgets.Like("vk_like_sr", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию &laquo;Справедливая Россия&raquo;", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1004);
-	
-	VK.Widgets.Like("vk_like_yabloko", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию &laquo;ЯБЛОКО&raquo;", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1005);
-	
-	VK.Widgets.Like("vk_like_pr", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию &laquo;Патриоты России&raquo;", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1006);
-	
-	VK.Widgets.Like("vk_like_pd", {type: "mini", text: "Я голосую", pageTitle: "Я голосую за партию &laquo;Правое дело&raquo;", pageDescription: "Прими участие в правдивом интернет-голосовании."}, 1007);
-	
-	VK.Widgets.Comments("vk_comments", {limit: 10, width: "460", attach: false});
-
-
+	yepnope({
+	  load: 'http://vkontakte.ru/js/api/share.js?11',
+	  complete: function() {
+	  	$('.option-list .option').each(function(idx, option) {
+			var $option = $(option);
+			var $btn = $option.find('.btn.vk .share');
+			var img_str = $option.find('.logo img').attr('src');
+			$btn.html(VK.Share.button({url: $btn.data('href'), title: $btn.data('title'), image: img_str, description: $btn.data('text'), noparse: true}, {type: "button", text: "голосую"}));	
+		});
+	  }
+	});
 }
-
-yepnope({
-  load: 'http://vkontakte.ru/js/api/share.js?11',
-  complete: function() {
-    $('#share-i-hate-edro').html(VK.Share.button({url: 'http://rosizber.com/#no-er', title: 'Я не голосовал за Единую Россию', image: 'http://rosizber.com/img/edimro.jpg', description: 'На выборах 4 декабря я голосовал против партии Единая Росси!!!', noparse: true},{type: "button", text: "Я НЕ голосовал за ЕдРо"}));
-    $('#share-i-am-julik').html(VK.Share.button({url: 'http://rosizber.com/#za-er', title: 'Я голосовал за Единую Россию', image: 'http://rosizber.com/img/er.png', description: 'На выборах 4 декабря я голосовал за партию Единая Россия!!!', noparse: true},{type: "button", text: "Я голосовал за ЕдРо"}));
-  }
-});
 
 
 function widget_twitter_init() {

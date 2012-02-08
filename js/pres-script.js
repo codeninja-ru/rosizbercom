@@ -29,6 +29,7 @@ function widget_vk_init() {
 			var $option = $(option);
 			var $btn = $option.find('.btn.vk .share');
 			var img_str = $option.find('.logo img').attr('src');
+      img_str = 'http://rosizber.com/' + img_str;
 			$btn.html(VK.Share.button({url: $btn.data('href'), title: $btn.data('title'), image: img_str, description: $btn.data('text'), noparse: true}, {type: "button", text: "голосую"}));	
 		});
 	  }

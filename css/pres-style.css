@@ -224,10 +224,13 @@ header h1 { margin-bottom: 7px; }
 }
 .party-name { font-family: "Helvetica Neue", helvetica; margin-bottom: 10px; color: #999; }
 .option h2 {
-	font-size: 30px;
+	font-size: 25px;
 	font-weight: 300;
 	font-family: "PT Sans Narrow", "Arial Narrow", Helvetica, 'sans-serif';
 	margin-bottom: 0;
+}
+.fontface .option h2 {
+	font-size: 30px;
 }
 .option .descr { color: #777;}
 .option .logo {

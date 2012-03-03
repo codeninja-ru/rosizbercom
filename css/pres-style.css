@@ -274,6 +274,8 @@ footer {
 #results h4 { text-align: center; }
 #results { display: none; }
 .stop #results { display: block; }
+.stop .option .poll { display: none; }
+.stop .option .poll-text { display: none; }
 .show-results #main { opacity: 0.3; }
 #chart { margin: 0 auto; width: 840px; }
 #comments { margin-bottom: 20px; }

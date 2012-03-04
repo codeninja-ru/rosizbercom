@@ -28,10 +28,18 @@
 		<h1 class="main grid_12">Проголосуй за кандидата в президенты!</h1>
 		<div class="slogan grid_12">Время делать свой выбор, настоящее народное голосование стартует здесь. Выборы президента Россииму России состоятся 4 марта 2012 года. Сделай свой выбор. Прими участие в независимом интернет–голосовании.</div>
 	</header>
+  <div id="results">
+    <div class="inner container_12 clearfix">
+      <div class="grid_12">
+        <h3>Голосование завершено</h3>
+        <div id="chart"></div>
+      </div>
+    </div>
+  </div>
 	<div id="main" role="main" class="container_12 clearfix">
 		<div class="option-list">
 			<section class="grid_4">
-				<div id="option-zuganov" data-id="2001" data-name="zuganov" data-count="0" class="option">
+				<div id="option-zuganov" data-id="2001" data-name="zuganov" data-count="521" class="option">
 					<h2>Геннадий Зюганов</h2>
 					<div class="party-name">КПРФ</div>
 					<div class="logo">
@@ -60,7 +68,7 @@
 				</div>
 			</section>
 			<section class="grid_4">
-				<div id="option-zhirinovsky" data-id="2002" data-name="zhirinovsky" data-count="0" class="option">
+				<div id="option-zhirinovsky" data-id="2002" data-name="zhirinovsky" data-count="127" class="option">
 					<h2>Владимир Жириновский</h2>
 					<div class="party-name">ЛДПР</div>
 					<div class="logo">
@@ -88,7 +96,7 @@
 				</div>
 			</section>
 			<section class="grid_4">
-				<div id="option-putin" data-id="2003" data-name="putin" data-count="0" class="option">
+				<div id="option-putin" data-id="2003" data-name="putin" data-count="115" class="option">
 					<h2>Владимир Путин</h2>
 					<div class="party-name">Единая Россия</div>
 					<div class="logo">
@@ -117,7 +125,7 @@
 				</div>
 			</section>
 			<section class="grid_4">
-				<div id="option-mironov" data-id="2004" data-name="mironov" data-count="0" class="option">
+				<div id="option-mironov" data-id="2004" data-name="mironov" data-count="19" class="option">
 					<h2>Сергей Миронов</h2>
 					<div class="party-name">Справедливая Россия</div>
 					<div class="logo">
@@ -146,7 +154,7 @@
 				</div>
 			</section>
 			<section class="grid_4">
-				<div id="option-prohorov" data-id="2005" data-name="prohorov" data-count="0" class="option">
+				<div id="option-prohorov" data-id="2005" data-name="prohorov" data-count="374" class="option">
 					<h2>Михаил Прохоров</h2>
 					<div class="party-name">беспартийный</div>
 					<div class="logo">
@@ -239,11 +247,11 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script src="js/pres-script.js?v=1"></script>
-<!--script src="https://www.google.com/jsapi"></script>
+<script src="https://www.google.com/jsapi"></script>
 <script>
   google.load('visualization', '1.0', {'packages':['corechart']});
   google.setOnLoadCallback(drawChart);
-</script-->
+</script>
 
 <script>
 	var _gaq=[['_setAccount','UA-26049347-1'],['_trackPageview']]; 

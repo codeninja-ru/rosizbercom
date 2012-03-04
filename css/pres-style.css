@@ -260,6 +260,13 @@ header h1 { margin-bottom: 7px; }
 .show-results .poll, .show-results .poll-text { display: block; }
 #chart { display: none; }
 #about-results { font-size: 18px; }
+#results h4 { text-align: center; }
+.stop #results { display: none; }
+.stop .option .poll { display: none; }
+.stop .option .poll-text { display: none; }
+.show-results .stop .option .poll { display: block; }
+.show-results .stop .option .poll-text { display: block; }
+.show-results #results { display: block; }
 .show-results #about-results { display: none; }
 .show-results #chart { display: block; }
 .show-results #advice { display: none; }
@@ -271,11 +278,6 @@ footer {
 }
 #after-elections { margin: 0 auto; width: 400px; text-align: center; margin-bottom: 80px;}
 #after-elections .share { float: left; width: 200px; }
-#results h4 { text-align: center; }
-#results { display: none; }
-.stop #results { display: block; }
-.stop .option .poll { display: none; }
-.stop .option .poll-text { display: none; }
 .show-results #main { opacity: 0.3; }
 #chart { margin: 0 auto; width: 840px; }
 #comments { margin-bottom: 20px; }

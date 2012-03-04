@@ -152,7 +152,7 @@ function drawChart() {
   // Create the data table.
   ResultData.data.addColumn('string', 'Topping');
   ResultData.data.addColumn('number', 'Slices');
-  $('.party').each(function (idx, item) {
+  $('.option').each(function (idx, item) {
       ResultData.addRow($(item).data('name'), $(item).find('h2').text().trim(), $(item).data('count'));
   });
   

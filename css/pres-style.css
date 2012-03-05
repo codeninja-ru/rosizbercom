@@ -257,16 +257,12 @@ header h1 { margin-bottom: 7px; }
 	padding: 25px 0 60px 0;
 }
 /*.poll, .poll-text { display: none; }*/
-.show-results .poll, .show-results .poll-text { display: block; }
 #chart { display: none; }
 #about-results { font-size: 18px; }
 #results h4 { text-align: center; }
 .stop #results { display: none; }
 .stop .option .poll { display: none; }
 .stop .option .poll-text { display: none; }
-.show-results .stop .option .poll { display: block; }
-.show-results .stop .option .poll-text { display: block; }
-.show-results #results { display: block; }
 .show-results #about-results { display: none; }
 .show-results #chart { display: block; }
 .show-results #advice { display: none; }
